@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const app = require('./app');
 
 // não remova a variável `API_PORT` ou o `listen`

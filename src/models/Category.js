@@ -1,6 +1,10 @@
 const CategoryModel = (sequelize, DataTypes) => {
     const Category = sequelize.define('Category', {
-        id: DataTypes.INTEGER,
+        id: {
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.INTEGER,
+        },
         name: DataTypes.STRING
     },
     {

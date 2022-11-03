@@ -18,8 +18,13 @@ const schema3 = Joi.object({
     image: Joi.string(),
 });
 
+const schema4 = Joi.object({
+    name: Joi.string().required(),
+});
+
 module.exports = { 
     schema1, 
     schema2,
     schema3,
+    schema4,
 };

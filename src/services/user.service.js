@@ -31,4 +31,17 @@ const createUser = async (data) => {
     return { type: null, message: generatedToken(addUser) };
 };
 
-module.exports = { createUser };
+const listUsers = async () => {
+const attributes = ['id', 'displayName', 'email', 'image'];
+const userList = await User.findAll({ attributes });
+
+return { 
+    message: userList,
+    type: null,
+};
+};
+
+module.exports = { 
+    createUser,
+    listUsers,    
+};

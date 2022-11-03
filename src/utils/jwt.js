@@ -15,14 +15,4 @@ const createToken = (data) => {
   return token;
 };
 
-// const validateToken = (token) => {
-//   try {
-//     const { data } = jwt.verify(token, secretWord);
-
-//     return { data };
-//   } catch (error) {
-//     return { error: 'Invalid Token' };
-//   }
-// };
-
 module.exports = createToken;

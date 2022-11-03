@@ -2,17 +2,21 @@ const BlogPostModel = (sequelize, DataTypes) => {
     const BlogPost = sequelize.define('BlogPost', {
         id: {
             allowNull: false,
+            autoIncrement: true,
             primaryKey: true,
             type: DataTypes.INTEGER,
         },
         title: DataTypes.STRING,
         content: DataTypes.STRING,
-        userId: DataTypes.INTEGER,
+        userId: {
+            defaultValue: 1,
+            type: DataTypes.INTEGER,
+        },
         published: DataTypes.DATE,
         updated: DataTypes.DATE,
     },
     {
-        tableName: 'blog_post',
+        tableName: 'blog_posts',
         timestamps: false,
         underscored: true,
     });

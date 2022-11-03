@@ -13,6 +13,14 @@ const postCategory = async (addingCategory) => {
     return { message: newEntry };
 };
 
+const listCategories = async () => {
+    const categoryList = await Category.findAll();
+
+    return { message: categoryList };
+};
+
 module.exports = {
     postCategory,
+    listCategories,
+    
 };

@@ -11,6 +11,13 @@ const postCategory = async (req, res) => {
     res.status(201).json(message);
 };
 
+const listCategories = async (req, res) => {
+    const categories = await categoryService.listCategories();
+
+    res.status(200).json(categories.message);
+};
+
 module.exports = {
     postCategory,
+    listCategories,
 };

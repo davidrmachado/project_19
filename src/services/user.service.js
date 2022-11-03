@@ -36,12 +36,29 @@ const attributes = ['id', 'displayName', 'email', 'image'];
 const userList = await User.findAll({ attributes });
 
 return { 
-    message: userList,
     type: null,
+    message: userList,
+    };
 };
+
+const findById = async (id) => {
+    const NOT_EXIST = 'User does not exist';
+    const user = await User.findOne({ where: { id } });
+
+    if (!user) {
+        return { type: 404, message: NOT_EXIST };
+    }
+
+    const { password: _, ...userNoPassword } = user.dataValues;
+
+    return { 
+        type: null, 
+        message: userNoPassword,
+    };
 };
 
 module.exports = { 
     createUser,
-    listUsers,    
+    listUsers,
+    findById, 
 };
